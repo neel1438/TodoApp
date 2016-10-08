@@ -1,0 +1,10 @@
+rethinkdb_data
+**/*.log
+.hz/secrets.toml
+node_modules
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+
+.github
