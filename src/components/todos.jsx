@@ -12,20 +12,16 @@ class Todos extends Component {
   componentDidMount() {
     this.todos.watch().subscribe(
       (todos) => {
-        console.log(todos);
         this.setState({ todos });
-      },
-      (err) => {
-        console.log(err);
       }
     );
   }
   render() {
-    const jsx = this.state.todos.map((todo, i) => <Todo data={todo} key={i} />);
+    const jsx = this.state.todos.map((todo, i) => <Todo data={todo} todos={this.todos} key={i} />);
     return (<div className="container-fluid"> {jsx} </div>);
   }
 }
 Todos.propTypes = {
-  todos: React.propTypes.arrayOf(React.propTypes.object),
+  todos: React.PropTypes.object,
 };
 export default Todos;

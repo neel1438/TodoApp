@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
 
 class Todo extends Component {
-  onChangeHandler() {
-    console.log('toggled');
+  constructor(props) {
+    super(props);
+    this.todos = this.props.todos;
+    this.onChangeHandler = this.onChangeHandler.bind(this, this.props.data);
+  }
+  onChangeHandler(todo) {
+    const newTodo = todo;
+    newTodo.isDone = !todo.isDone;
+    this.todos.replace(newTodo);
   }
   classes() {
-    if (!this.props.data.isDone) {
+    if (this.props.data.isDone) {
       return 'col-xs-11 strike';
     }
     return 'col-xs-11';
@@ -16,7 +23,7 @@ class Todo extends Component {
         <div className="col-xs-1">
           <input ref={(ref) => { this.toggleDone = ref; }} onChange={this.onChangeHandler} type="checkbox" checked={this.props.data.isDone} />
         </div>
-        <div className={this.classes}>
+        <div className={this.classes()}>
           {this.props.data.description}
         </div>
       </div>
@@ -29,5 +36,6 @@ Todo.propTypes = {
     description: React.PropTypes.string,
     isDone: React.PropTypes.bool,
   }),
+  todos: React.PropTypes.object,
 };
 export default Todo;
