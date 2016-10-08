@@ -1,6 +1,8 @@
 .center{
     margin: auto;
     padding: 10px;
-    border:1px solid;
-    border-radius: 2px;
+    border-bottom: 1px solid;
+}
+.strike{
+    text-decoration: line-through;
 }
