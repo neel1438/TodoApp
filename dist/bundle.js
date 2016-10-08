@@ -29410,6 +29410,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _todos = __webpack_require__(556);
+
+	var _todos2 = _interopRequireDefault(_todos);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var App = function (_Component) {
@@ -29421,12 +29425,25 @@
 	    }
 
 	    (0, _createClass3.default)(App, [{
+	        key: 'submitHandler',
+	        value: function submitHandler(e) {
+	            e.preventDefault();
+	            console.log("lol");
+	            // this.refs.todoForm.reset();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
-	                ' This works !'
+	                { className: 'center' },
+	                _react2.default.createElement(
+	                    'form',
+	                    { ref: 'todoForm', onSubmit: this.submitHandler },
+	                    _react2.default.createElement('input', { ref: 'todo', type: 'text', placeholder: 'Enter a todo' }),
+	                    _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+	                ),
+	                _react2.default.createElement(_todos2.default, null)
 	            );
 	        }
 	    }]);
@@ -30966,6 +30983,155 @@
 	var $export = __webpack_require__(482)
 	// 19.1.2.2 / 15.2.3.5 Object.create(O [, Properties])
 	$export($export.S, 'Object', {create: __webpack_require__(513)});
+
+/***/ },
+/* 556 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(470);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(496);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(497);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(501);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(548);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(299);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _todo = __webpack_require__(557);
+
+	var _todo2 = _interopRequireDefault(_todo);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Todos = function (_Component) {
+	    (0, _inherits3.default)(Todos, _Component);
+
+	    function Todos(props) {
+	        (0, _classCallCheck3.default)(this, Todos);
+
+	        var _this = (0, _possibleConstructorReturn3.default)(this, (Todos.__proto__ || (0, _getPrototypeOf2.default)(Todos)).call(this, props));
+
+	        _this.state = {
+	            todos: [{
+	                description: "This is example 1",
+	                isDone: false
+	            }, {
+	                description: "This is example 2",
+	                isDone: true
+	            }, {
+	                description: "This is example 3",
+	                isDone: false
+	            }, {
+	                description: "This is example 4",
+	                isDone: true
+	            }]
+	        };
+	        return _this;
+	    }
+
+	    (0, _createClass3.default)(Todos, [{
+	        key: 'render',
+	        value: function render() {
+	            var jsx = this.state.todos.map(function (todo, i) {
+	                return _react2.default.createElement(_todo2.default, { data: todo, key: i });
+	            });
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'container-fluid' },
+	                ' ',
+	                jsx,
+	                ' '
+	            );
+	        }
+	    }]);
+	    return Todos;
+	}(_react.Component);
+
+	exports.default = Todos;
+
+/***/ },
+/* 557 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _getPrototypeOf = __webpack_require__(470);
+
+	var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
+
+	var _classCallCheck2 = __webpack_require__(496);
+
+	var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+	var _createClass2 = __webpack_require__(497);
+
+	var _createClass3 = _interopRequireDefault(_createClass2);
+
+	var _possibleConstructorReturn2 = __webpack_require__(501);
+
+	var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
+
+	var _inherits2 = __webpack_require__(548);
+
+	var _inherits3 = _interopRequireDefault(_inherits2);
+
+	var _react = __webpack_require__(299);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Todo = function (_Component) {
+	    (0, _inherits3.default)(Todo, _Component);
+
+	    function Todo(props) {
+	        (0, _classCallCheck3.default)(this, Todo);
+	        return (0, _possibleConstructorReturn3.default)(this, (Todo.__proto__ || (0, _getPrototypeOf2.default)(Todo)).call(this, props));
+	    }
+
+	    (0, _createClass3.default)(Todo, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'row' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'col-xs-12 center' },
+	                    this.props.data.description
+	                )
+	            );
+	        }
+	    }]);
+	    return Todo;
+	}(_react.Component);
+
+	exports.default = Todo;
 
 /***/ }
 /******/ ]);
