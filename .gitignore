@@ -3,6 +3,7 @@ rethinkdb_data
 .hz/secrets.toml
 node_modules
 # Cruft
+dist/bundle.js
 .DS_Store
 npm-debug.log
 .idea
