@@ -4,7 +4,7 @@
   "description": "Todo App with json jwt auth and horizonio backend",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start" : "webpack && hz serve --dev"
   },
   "author": "Neel Bommisetty",
   "license": "ISC",
@@ -97,6 +97,7 @@
     "babel-preset-stage-0": "^6.16.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
+    "react-router": "^2.8.1",
     "webpack": "^1.13.2"
   },
   "devDependencies": {

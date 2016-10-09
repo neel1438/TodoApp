@@ -8,13 +8,17 @@ class Todos extends Component {
     this.state = {
       todos: [],
     };
+    this.todosObservable = this.todos.watch();
   }
   componentDidMount() {
-    this.todos.watch().subscribe(
+    this.todosObservable.subscribe(
       (todos) => {
         this.setState({ todos });
       }
     );
+  }
+  componentDidUnmount() {
+    this.todosObservable.dispose();
   }
   render() {
     const jsx = this.state.todos.map((todo, i) => <Todo data={todo} todos={this.todos} key={i} />);
