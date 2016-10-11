@@ -5,4 +5,46 @@
 }
 .strike{
     text-decoration: line-through;
+    font-style: italic;
+}
+.todo-container{
+  margin-top: 60px;
+}
+.todo-input{
+  /*width: 100%;*/
+  outline: none;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+}
+.todoapp input::-webkit-input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+}
+.todoapp input::-moz-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+}
+.todoapp input::input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+}
+.todo-row{
+  margin: 0;
+  padding: 10px;
+  border: 1px solid #e6e6e6;
+}
+.todos-row {
+    margin-top: 10px;
+    font-size: 1.3em;
+}
+.btn-github {
+    font-size: 1.5em;
+    margin: auto;
+    background-color: #444;
+    color: white;
+    width: 300px;
 }

@@ -21,11 +21,20 @@ class Login extends Component {
   render() {
     const login = (
       <div className="row">
-        <button className={'login-btn'} onClick={this.handleAuth} >Login with Github</button>
+        <button
+          className="btn btn-block btn-github" onClick={this.handleAuth}
+        >
+          <span className="fa fa-github"></span> Sign in with Github
+        </button>
       </div>);
     const logout = (
       <div className="row">
-        <button className={'login-btn'} onClick={this.handleLogout} >logout</button>
+        <button
+          className="btn btn-block btn-danger"
+          onClick={this.handleAuth}
+        >
+          <span className="fa fa-github"></span> Logout
+        </button>
       </div>);
     const jsx = this.horizon.hasAuthToken() ? logout : login;
     return jsx;

@@ -20,12 +20,12 @@ class TodoLayout extends Component {
   }
   render() {
     return (
-      <div className="container" >
-        <form ref={(ref) => { this.todoForm = ref; }} onSubmit={this.submitHandler} className="form-inline">
+      <div className="container todoapp" >
+        <form ref={(ref) => { this.todoForm = ref; }} onSubmit={this.submitHandler} className="form row">
           <div className="form-group">
-            <input className="form-control" ref={(ref) => { this.todoInput = ref; }} id="exampleInputEmail1" type="text" placeholder="Enter a todo" />
+            <input className="todo-input col-xs-12" ref={(ref) => { this.todoInput = ref; }} type="text" placeholder="What do you want to do ?" />
           </div>
-          <input type="submit" value="Submit" className="btn btn-info" />
+          <input type="hidden" value="Submit" className="btn btn-info" />
         </form>
         <Todos todos={this.todos} user={this.props.user} />
       </div>

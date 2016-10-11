@@ -19,7 +19,7 @@ class Todo extends Component {
   }
   render() {
     return (
-      <div className="row center">
+      <div className="row todo-row">
         <div className="col-xs-1">
           <input ref={(ref) => { this.toggleDone = ref; }} onChange={this.onChangeHandler} type="checkbox" checked={this.props.data.isDone} />
         </div>

@@ -26,7 +26,7 @@ class Todos extends Component {
 
   render() {
     const jsx = this.state.todos.map((todo, i) => <Todo data={todo} todos={this.todos} key={i} />);
-    return (<div className="container-fluid"> {jsx} </div>);
+    return (<div className="row todos-row" >{jsx}</div>);
   }
 }
 Todos.propTypes = {
