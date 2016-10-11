@@ -10,7 +10,11 @@ class TodoLayout extends Component {
   submitHandler(e) {
     e.preventDefault();
     if (this.todoInput.value) {
-      this.todos.store({ isDone: false, description: this.todoInput.value });
+      this.todos.store({
+        isDone: false,
+        description: this.todoInput.value,
+        author: this.props.user,
+      });
       this.todoForm.reset();
     }
   }
@@ -23,7 +27,7 @@ class TodoLayout extends Component {
           </div>
           <input type="submit" value="Submit" className="btn btn-info" />
         </form>
-        <Todos todos={this.todos} />
+        <Todos todos={this.todos} user={this.props.user} />
       </div>
    );
   }
@@ -32,6 +36,7 @@ class TodoLayout extends Component {
 TodoLayout.propTypes = {
   route: React.PropTypes.object,
   todos: React.PropTypes.array,
+  user: React.PropTypes.string,
 };
 
 export default TodoLayout;

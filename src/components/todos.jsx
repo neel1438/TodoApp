@@ -8,15 +8,22 @@ class Todos extends Component {
     this.state = {
       todos: [],
     };
-    this.todosObservable = this.todos.watch();
+    this.userId = '';
   }
-  componentDidMount() {
-    this.todosObservable.subscribe(
-      (todos) => {
-        this.setState({ todos });
-      }
-    );
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.user !== this.userId) {
+      this.userId = nextProps.user;
+      this.todos.findAll({
+        author: this.userId,
+      }).watch().subscribe((collection) => {
+        if (collection) {
+          this.setState({ todos: collection });
+        }
+      });
+    }
   }
+
   render() {
     const jsx = this.state.todos.map((todo, i) => <Todo data={todo} todos={this.todos} key={i} />);
     return (<div className="container-fluid"> {jsx} </div>);
