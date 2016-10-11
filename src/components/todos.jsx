@@ -17,9 +17,6 @@ class Todos extends Component {
       }
     );
   }
-  componentDidUnmount() {
-    this.todosObservable.dispose();
-  }
   render() {
     const jsx = this.state.todos.map((todo, i) => <Todo data={todo} todos={this.todos} key={i} />);
     return (<div className="container-fluid"> {jsx} </div>);

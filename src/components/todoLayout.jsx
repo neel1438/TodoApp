@@ -31,7 +31,7 @@ class TodoLayout extends Component {
 
 TodoLayout.propTypes = {
   route: React.PropTypes.object,
-  todos: React.PropTypes.Array,
+  todos: React.PropTypes.array,
 };
 
 export default TodoLayout;

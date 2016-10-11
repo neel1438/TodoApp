@@ -3,6 +3,9 @@ rethinkdb_data
 .hz/secrets.toml
 node_modules
 
+horizon-cert.pem
+horizon-key.pem
+
 dist/bundle.js
 .DS_Store
 npm-debug.log
