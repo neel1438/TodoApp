@@ -4,7 +4,7 @@
   "description": "Todo App with json jwt auth and horizonio backend",
   "main": "index.js",
   "scripts": {
-    "start": "webpack && hz serve --dev"
+    "start": "webpack && node server.js"
   },
   "author": "Neel Bommisetty",
   "license": "ISC",
