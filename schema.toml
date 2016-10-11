@@ -1,0 +1,23 @@
+# This is a TOML document
+
+[collections.users]
+
+[collections.todos]
+[[collections.todos.indexes]]
+fields = [["author"]]
+
+[groups.admin]
+[groups.admin.rules.carte_blanche]
+template = "any()"
+
+[groups.authenticated.rules.read_own_messages]
+template = "collection('todos').findAll({author: userId()})"
+
+[groups.authenticated.rules.write_own_messages]
+template = "collection('todos').store({author: userId(), description: any(), isDone: any()})"
+
+[groups.authenticated.rules.replace_own_messages]
+template = "collection('todos').anyWrite()"
+
+[groups.default.rules.read_current_user]
+template = "collection('users').find({id: userId()})"
